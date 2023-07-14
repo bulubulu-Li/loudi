@@ -11,3 +11,4 @@ tiktoken
 docx2txt
 rouge
 pandas
+openpyxl==3.0.10
