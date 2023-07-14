@@ -867,7 +867,7 @@ class xlsx_loader(BaseLoader):
         super().__init__()
     def load(self):
         docs = []
-        file_path = '/file.xlsx'
+        file_path = './file.xlsx'
         sheets = pd.read_excel(file_path, sheet_name=None)
         df_list = []
         except_list = ['更新数统计','通讯录','登录流程','Sheet1','Sheet2','Sheet3','Sheet4','Sheet5','Sheet6','Sheet7','Sheet8']
