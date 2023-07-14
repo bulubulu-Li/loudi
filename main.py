@@ -879,7 +879,7 @@ class xlsx_loader(BaseLoader):
             print(sheet_name)
             for i in range(len(df)):
               try:
-                doc = Document(page_content = df['问题'].iloc[i]+'\n\n'+ df['解答'].iloc[i],metadata={'source':sheet_name})
+                doc = Document(page_content = df['问题'].iloc[i]+'\n\n'+ df['解答'].iloc[i],metadata={'source':df['问题'].iloc[i]+'\n'+ df['解答'].iloc[i]})
               except:
                 print(1)
               docs.append(doc)
@@ -911,7 +911,7 @@ if __name__ == '__main__':
     loader = xlsx_loader()
     split_docs = loader.load()
 
-    docsearch = Chroma.from_documents(split_docs[:100], embeddings)
+    docsearch = Chroma.from_documents(split_docs, embeddings)
     print(len(split_docs))
     print("完成向量化")
 
